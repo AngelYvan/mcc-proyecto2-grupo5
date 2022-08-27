@@ -253,40 +253,6 @@ Node.prototype.maximunNode = function () {
         return this.right.maximunNode();
 }
 
-Node.prototype.preVisit = function () {
-    travs += this.value.toString() + " , ";
-
-    if (this.left != null) 
-        this.left.preVisit();
-    
-    if (this.right != null) 
-        this.right.preVisit();
-}
-
-Node.prototype.inVisit = function() {
-    if (this.left != null) { 
-        this.left.inVisit();
-    }
-
-    travs += this.value.toString() + " , ";
-    
-    if (this.right != null) { 
-        this.right.inVisit();
-    }
-}
-
-Node.prototype.postVisit = function () {
-    if (this.left != null) { 
-        this.left.postVisit();
-    }
-    
-    if (this.right != null) { 
-        this.right.postVisit();
-    }
-    
-    travs += this.value.toString() + " , ";
-}
-
 Node.prototype.search = function(val) {
     if (this.value == val) {
         return this;

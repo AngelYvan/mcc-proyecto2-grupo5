@@ -4,36 +4,6 @@ function Tree() {
     this.root = null;
 }
 
-Tree.prototype.preTraverse = function () { 
-    if (tree.root) {
-        travs = "Pre-Order : ";
-        this.root.preVisit();
-        message.innerText = travs.substring(0, travs.length - 3);
-    } else { 
-        message.innerText = "Tree is Empty.";
-    }
-}
-
-Tree.prototype.inTraverse = function () { 
-    if (tree.root) {
-        travs = "In-Order : ";
-        this.root.inVisit();
-        message.innerText = travs.substring(0, travs.length - 3);
-    } else { 
-        message.innerText = "Tree is Empty.";
-    }
-}
-
-Tree.prototype.postTraverse = function () { 
-    if (tree.root) {
-        travs = "Post-Order : ";
-        this.root.postVisit();
-        message.innerText = travs.substring(0, travs.length - 3);
-    } else { 
-        message.innerText = "Tree is Empty.";
-    }
-}
-
 Tree.prototype.minimun = function () { 
     if (tree.root) {
         travs = "Minimun : ";
