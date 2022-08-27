@@ -1,0 +1,484 @@
+%package list
+\documentclass{article}
+\usepackage[top=3cm, bottom=3cm, outer=3cm, inner=3cm]{geometry}
+\usepackage{graphicx}
+\usepackage{url}
+
+%% \usepackage{cite}
+\usepackage{hyperref}
+\usepackage{array}
+\usepackage{multicol}
+\newcolumntype{x}[1]{>{\centering\arraybackslash\hspace{0pt}}p{#1}}
+\usepackage{natbib}
+\usepackage{pdfpages}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage[normalem]{ulem}
+\useunder{\uline}{\ul}{}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\csemail}{vmachacaa@unsa.edu.pe}
+\newcommand{\csdocente}{Vicente Machaca Arceda}
+\newcommand{\cscurso}{Algoritmos y Estructura de Datos}
+\newcommand{\csuniversidad}{Universidad Nacional de San Agustín}
+\newcommand{\csescuela}{Maestría en Ciencia de la Computación}
+\newcommand{\cspracnr}{02}
+\newcommand{\cstema}{--}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\usepackage[english,spanish]{babel}
+\usepackage[utf8]{inputenc}
+\AtBeginDocument{\selectlanguage{spanish}}
+\renewcommand{\figurename}{Figura}
+\renewcommand{\refname}{Referencias}
+\renewcommand{\tablename}{Tabla} %esto no funciona cuando se usa babel
+\AtBeginDocument{%
+	\renewcommand\tablename{Tabla}
+}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\setlength{\headheight}{30pt}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{1pt}
+\fancyhead[L]{\raisebox{-0.2\height}{\includegraphics[width=3cm]{Img/logo_unsa.jpg}}}
+\fancyhead[C]{}
+\fancyhead[R]{\fontsize{7}{7}\selectfont	\csuniversidad \\ \csescuela \\ \textbf{\cscurso} }
+\fancyfoot[L]{MSc. Vicente Machaca}
+\fancyfoot[C]{\cscurso}
+\fancyfoot[R]{Página \thepage}
+
+\begin{document}
+	
+	\vspace*{10px}
+	
+	\begin{center}	
+		\fontsize{17}{17} \textbf{ Práctica \cspracnr}
+	\end{center}
+	%\centerline{\textbf{\underline{\Large Título: Informe de revisión del estado del arte}}}
+	%\vspace*{0.5cm}
+	
+
+	\begin{table}[h]
+		\begin{tabular}{|x{4.7cm}|x{4.8cm}|x{4.8cm}|}
+			\hline 
+			\textbf{DOCENTE} & \textbf{CARRERA}  & \textbf{CURSO}   \\
+			\hline 
+			\csdocente & \csescuela & \cscurso    \\
+			\hline 
+		\end{tabular}
+	\end{table}	
+	
+	
+	\begin{table}[h]
+		\begin{tabular}{|x{4.7cm}|x{4.8cm}|x{4.8cm}|}
+			\hline 
+			\textbf{PRÁCTICA} & \textbf{TEMA}  & \textbf{DURACIÓN}   \\
+			\hline 
+			\cspracnr & Estructuras de datos & 3 horas   \\
+			\hline 
+		\end{tabular}
+	\end{table}
+	
+	
+	\section{Datos de los estudiantes}
+	\begin{itemize}
+		\item Grupo: V
+		\item Integrantes: 
+		\begin{itemize}
+			\item Angel Yvan Choquehuanca Peraltilla
+			\item Estefany Pilar Huaman Colque
+            \item Eduardo Diaz Huayhuas
+            \item Gustavo Raul Manrique Fernandez
+		\end{itemize}		
+	\end{itemize}
+	
+	
+ 
+	
+	%\clearpage
+	%\bibliographystyle{apalike}
+	%\bibliographystyle{IEEEtranN}
+	%\bibliography{bibliography}
+		
+
+    \section{Introducción}
+    En el caso de árboles binarios, si los árboles están sesgados, se vuelven computacionalmente ineficientes para realizar operaciones en ellos.
+    Esta es la motivación detrás de asegurarse de que los árboles no estén sesgados. De ahí la necesidad de árboles binarios balanceados.
+
+    
+    \section{Marco Teorico}
+Árbol de búsqueda binario autoequilibrado
+
+	
+		\subsection{Estructura de datos AVL}
+		
+Un árbol AVL es un árbol de búsqueda binario balanceado. En un árbol AVL, el factor de equilibrio de cada nodo es -1, 0 o +1.
+
+El factor de equilibrio de un nodo es la diferencia entre las alturas de los subárboles izquierdo y derecho de ese nodo. El factor de equilibrio de un nodo se calcula ya sea altura del subárbol izquierdo - altura del subárbol derecho (O) altura del subárbol derecho - altura del subárbol izquierdo . En la siguiente explicación, calculamos de la siguiente manera:
+
+ \fbox{Factor de equilibrio = altura del subárbol izquierdo - altura del subárbol derecho}
+
+En el árbol AVL, después de realizar operaciones como inserción y eliminación, debemos verificar el factor de equilibrio de cada nodo en el árbol. Si todos los nodos satisfacen la condición del factor de equilibrio, concluimos la operación; de lo contrario, debemos equilibrarlo. Cada vez que el árbol se desequilibra debido a alguna operación, utilizamos operaciones de rotación para equilibrar el árbol.La rotación es el proceso de mover los nodos hacia la izquierda o hacia la derecha para equilibrar el árbol.
+
+Hay cuatro rotaciones y se clasifican en dos tipos:
+
+\begin{itemize}
+   \item Rotación izquierda
+   \item Rotación a la derecha
+   \item Rotación izquierda-derecha
+   \item Rotación derecha-izquierda
+\end{itemize}	
+
+
+\begin{enumerate}
+
+		\item \textbf{Rotación Simple a la izquierda (rotación LL)}
+		En Rotación LL, cada nodo se mueve una posición a la izquierda desde la posición actual. Para comprender la Rotación LL, consideremos la siguiente operación de inserción en el Árbol AVL.
+		
+		\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{Img/SLR.png}
+\caption{Rotación LL}
+\end{figure}
+		
+		\item \textbf{Rotación Simple a la derecha (rotación RR)}
+		n Rotación RR, cada nodo se mueve una posición a la derecha desde la posición actual. Para comprender la rotación RR, consideremos la siguiente operación de inserción en el árbol AVL.
+		
+		\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{Img/SRR.png}
+\caption{Rotación RR}
+\end{figure}
+		
+		\item \textbf{Rotación izquierda derecha (rotación LR)}
+		La rotación LR es una secuencia de una sola rotación a la izquierda seguida de una sola rotación a la derecha. En LR Rotation, al principio, cada nodo se mueve una posición a la izquierda y una posición a la derecha desde la posición actual. Para comprender la Rotación LR, consideremos la siguiente operación de inserción en el Árbol AVL.
+		
+		\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{Img/LRR.png}
+\caption{Rotación LR}
+\end{figure}
+		
+		\item \textbf{Rotación derecha izquierda (rotación RL)}
+		La rotación RL es una secuencia de una sola rotación a la derecha seguida de una sola rotación a la izquierda. En Rotación RL, al principio cada nodo se mueve una posición a la derecha y una posición a la izquierda desde la posición actual. Para comprender la Rotación RL, consideremos la siguiente operación de inserción en el Árbol AVL.
+		\end{enumerate}
+	\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{Img/RLR.png}
+\caption{Rotación RL}
+\end{figure}		
+		
+Las siguientes operaciones se realizan en el árbol AVL:
+
+	\begin{enumerate}
+
+		\item \textbf{Operación Búsqueda}
+	En un árbol AVL, la operación de búsqueda se realiza con una complejidad de tiempo O(log n) . La operación de búsqueda en el árbol AVL es similar a la operación de búsqueda en un árbol de búsqueda binario. Usamos los siguientes pasos para buscar un elemento en el árbol AVL:
+		
+		\begin{itemize}
+		\item Paso 1: lee el elemento de búsqueda del usuario.
+		\item Paso 2: compare el elemento de búsqueda con el valor del nodo raíz en el árbol.
+		\item Paso 3: Si ambos no coinciden, verifica si el elemento de búsqueda es más pequeño o más grande que el valor de ese nodo.
+		\item Paso 4: si el elemento de búsqueda es más pequeño, continúa el proceso de búsqueda en el subárbol izquierdo.
+		\item Paso 5: si el elemento de búsqueda es más grande, continúa el proceso de búsqueda en el subárbol derecho.
+		\item Paso 6: Repite lo mismo hasta encontrar el elemento exacto o hasta comparar el elemento de búsqueda con el nodo hoja.
+		\item Paso 7: si llega al nodo que tiene el valor igual al valor de búsqueda y finaliza la función.
+		\item Paso 8: si llega al nodo de hoja y tampoco coincide con el elemento de búsqueda, finaliza la función.
+		\end{itemize}
+
+
+		\item \textbf{Operación Inserción}
+		En un árbol AVL, la operación de inserción se realiza con una complejidad de tiempo O(log n) . En AVL Tree, siempre se inserta un nuevo nodo como un nodo hoja. La operación de inserción se realiza de la siguiente manera:
+		\begin{itemize}
+		\item Paso 1: inserte el nuevo elemento en el árbol utilizando la lógica de inserción del árbol de búsqueda binaria.
+		\item Paso 2: después de la inserción,se verifica el factor de equilibrio de cada nodo.
+		\item Paso 3: si el factor de equilibrio de cada nodo es 0, 1 o -1 , va a la siguiente operación.
+		\item Paso 4: si el factor de equilibrio de cualquier nodo es distinto de 0, 1 o -1 , se dice que ese árbol está desequilibrado. En este caso, realiza la Rotación adecuada para equilibrarlo y va a la siguiente operación.
+				\end{itemize}
+				
+		\item \textbf{Operación Eliminación}
+				La operación de eliminación en AVL Tree es similar a la operación de eliminación en BST. Pero después de cada operación de eliminación, debemos verificar la condición del factor de equilibrio. Si el árbol está equilibrado después de la eliminación, vaya a la siguiente operación; de lo contrario, realice una rotación adecuada para equilibrar el árbol.
+			\end{enumerate}
+		
+		
+
+		\subsection{Estructura de datos B Tree}
+
+B-Tree es un árbol de búsqueda autoequilibrado en el que cada nodo contiene varias claves y tiene más de dos elementos secundarios. Donde el número de claves en un nodo y el número de hijos para un nodo depende del orden de B-Tree. Cada B-Tree tiene un orden.
+
+B-Tree de Orden m tiene las siguientes propiedades:
+\begin{itemize}
+   \item Propiedad n.º 1 : todos los nodos de hoja deben estar al mismo nivel .
+   \item Propiedad n.º 2 : todos los nodos, excepto el raíz, deben tener al menos [m/2]-1 claves y un máximo de m-1 claves.
+   \item Propiedad n.º 3 : todos los nodos que no son hojas excepto la raíz (es decir, todos los nodos internos) deben tener al menos m/2 hijos.
+   \item Propiedad n.º 4 : si el nodo raíz no es un nodo hoja, debe tener al menos 2 hijos.
+   \item Propiedad n.º 5 : un nodo que no sea hoja con n-1 claves debe tener n número de hijos.
+   \item Propiedad n.º 6 : todos los valores clave de un nodo deben estar en orden ascendente .
+\end{itemize}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{Img/BTree.jpg}
+\caption{Ejemplo de Estructura de datos B Tree}
+\end{figure}
+
+
+Las siguientes operaciones se realizan en un B-Tree:
+
+	\begin{enumerate}
+
+		\item \textbf{Operación Búsqueda}
+		La operación de búsqueda en B-Tree es similar a la operación de búsqueda en Binary Search Tree. En un árbol de búsqueda binario, el proceso de búsqueda comienza desde el nodo raíz y tomamos una decisión bidireccional cada vez (vamos al subárbol izquierdo o al subárbol derecho). En B-Tree también el proceso de búsqueda comienza desde el nodo raíz, pero aquí siempre tomamos una decisión de n vías. Donde 'n' es el número total de hijos que tiene el nodo. En un B-Tree, la operación de búsqueda se realiza con una complejidad de tiempo O(log n) . La operación de búsqueda se realiza de la siguiente manera:
+		
+		\begin{itemize}
+		\item Paso 1: lee el elemento de búsqueda del usuario.
+		\item Paso 2: compara el elemento de búsqueda con el primer valor clave del nodo raíz en el árbol. 
+		\item Paso 3: si ambos coinciden, se muestra el nodo encontrado y termina la función.
+		\item Paso 4: si ninguno de los dos coincide, comprueba si el elemento de búsqueda es más pequeño o más grande que el valor de la clave.
+		\item Paso 5: si el elemento de búsqueda es más pequeño, continúa el proceso de búsqueda en el subárbol izquierdo.
+		\item Paso 6: si el elemento de búsqueda es más grande, compara el elemento de búsqueda con el siguiente valor clave en el mismo nodo y repite los pasos 3, 4, 5 y 6 hasta que encontrar la coincidencia exacta o hasta que el elemento de búsqueda se compare con el último valor clave en el nodo hoja.
+		\item Paso 7: si el último valor clave en el nodo hoja tampoco coincide, finalice la función.
+		\end{itemize}
+
+
+			\item \textbf{Operación Inserción}
+			En un B-Tree, se debe agregar un nuevo elemento solo en el nodo hoja. Eso significa que el nuevo valor clave siempre se adjunta solo al nodo hoja. La operación de inserción se realiza de la siguiente manera:
+			
+		
+\begin{itemize}
+\item Paso 1: comprueba si el árbol está vacío.
+ \item Paso 2: si el árbol está vacío , crea un nuevo nodo con un nuevo valor de clave y lo inserta en el árbol como un nodo raíz.
+\item Paso 3: si el árbol no está vacío , busca el nodo de hoja adecuado al que se agrega el nuevo valor clave utilizando la lógica del árbol de búsqueda binaria.
+\item Paso 4: si ese nodo hoja tiene una posición vacía, agrega el nuevo valor clave a ese nodo hoja en orden ascendente de valor clave dentro del nodo.
+\item Paso 5: si ese nodo de hoja ya está lleno, divide ese nodo de hoja enviando el valor medio a su nodo principal. Repite lo mismo hasta que el valor de envío se fije en un nodo.
+\item Paso 6: si el derrame se realiza en el nodo raíz, el valor medio se convierte en un nuevo nodo raíz para el árbol y la altura del árbol aumenta en uno.
+\end{itemize}
+\end{enumerate}
+    \section{Datos del Equipo}
+    Para los algoritmos de mergesort y treesort se utilizó un equipo en la nube proporcionado por \href{https://replit.com/~}{www.replit.com}, con las siguientes caracteristicas:
+
+    \begin{itemize}
+        \item 0.5 vCPU con el sistema operativo Ubuntu 21.04-KVM
+        \item 1 GB de Memoria RAM
+        \item 1 TB de disco SSD
+    \end{itemize}
+
+	Para los algoritmos de heapsort y quicksort se utilizó una laptop con las siguientes caracteristicas:
+	
+	\begin{itemize}
+		\item Intel Core i5-3230M @ 2.60 Hz
+		\item Sistema operativo Windows 10 Pro
+		\item 12 GB de Memoria RAM
+		\item 292 GB de disco SSD
+	\end{itemize}
+
+    \section{Metodologia y Desarrollo}
+    Para realizar las experiencias con mergesort y treesort tomaron en cuenta los siguientes aspectos:
+    
+    \begin{enumerate}
+        \item Se preparó los datos a partir de un generador de valores en Python mediante la libreria \textit{random}. Estos valores son usados para los 3 lenguajes en su ejecución.
+        \item Se subieron los archivos en la maquina virtual proporcionado por Replit.
+        \item Se preparó el entorno de trabajo separado por carpetas e instalando los compiladores adecuados.
+        \item Se utilizó el comando \textbf{time} de Linux para calcular el tiempo de ejecución real y del sistema.
+        \item Se hace 5 pruebas por cada ejecución y se grabaron los resultados en una tupla en \textit{Google Colab}.
+        \item Se hace uso de la libreria \textbf{MatPlotLib} de Python para la realización de los calculos estadisticos y graficos.
+    \end{enumerate}
+	Para realizar las experiencias con quicksort y heapsort tomaron en cuenta los siguientes aspectos:
+	
+	\begin{enumerate}
+		\item Se generó valores aleatorios con Excel y se almacenó en archivos csv.
+		\item Se preparó el entorno de trabajo separado por carpetas e instalando los compiladores adecuados.
+		\item Se utilizó las librerías time de python, chrono de c++ y time de go para calcular el tiempo de ejecución real y del sistema.
+		\item Se hace 5 pruebas por cada ejecución y se grabaron los resultados en un archivo csv.
+		\item Se hace uso de la libreria \textbf{MatPlotLib} de Python para la realización de los calculos estadisticos y graficos.
+	\end{enumerate}
+
+\section{Resultados}
+\subsection{Merge Sort} 
+Se utilizó el comando time para generar el tiempo de compilacion para cada lenguaje. Todo estos datos fueron almacenados en una libreta Jupyter para posteriormente utilizar la libreria Matplotlib de Python para generar las graficas.
+ Tambien se realizó calculos estadisticos utilizando la liberia Numpy. Los datos fueron almacenados y procesados para su respectiva tabla.
+
+ 
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.6]{img/finalmerg.png}
+        \caption{Algoritmo MergeSort}
+        \label{fig:my_label}
+    \end{figure}
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{| c | c | c | c | c | c | c |}
+\hline
+\multicolumn{7}{ |c| }{Algoritmo MergeSort - Promedios y Desviacion Estandar} \\ \hline
+Datos & C++ (s) & Go (s) & Py (s) &  DE C++ & DE Go & DE Py\\ \hline
+100 & 1.3104 & 1.1484 & 0.0352 & 0.11226 & 0.07171 & 0.00444 \\
+1000 & 1.3082 & 1.1662 & 0.0596 & 0.12914 & 0.03769 & 0.00417 \\
+2000 & 1.217 & 1.1667 & 0.068 & 0.11981 & 0.03166 & 0.00572 \\
+3000 & 1.4224 & 1.176 & 0.118 & 0.07406 & 0.03871 &  0.00993 \\
+4000 & 1.2738 & 1.1868 & 0.1612 & 0.074405 & 0.017982 & 0.00495 \\
+5000 & 1.4022 & 1.2622 & 0.3974 &  0.07954 & 0.01495 & 0.04623 \\
+6000 & 1.23 & 1.27 & 0.4034 & 0.073759 & 0.02530 &  0.01382 \\
+7000 & 1.1724 & 1.2924 & 0.5084 & 0.10504 & 0.01942 & 0.01861 \\
+8000 & 1.3989 & 1.299 & 0.6282 & 0.10770 & 0.02265 & 0.03787 \\
+9000 & 1.2449 & 1.345 & 0.7786 & 0.08257 & 0.02566 & 0.02032 \\
+10000 & 1.525 & 1.6674 & 0.94 &  0.02795 & 0.06302 & 0.048985 \\
+20000 & 1.4105 & 1.545 & 3.4601 & 0.10274 & 0.12826 &  0.1004 \\
+30000 & 1.5076 & 1.8056 & 7.7452 &  0.07759 & 0.05421 & 0.176682 \\
+40000 & 1.5076 & 1.7676 & 13.8876 & 0.07759 &  0.04846 & 0.66075 \\
+50000 & 1.5802 & 1.9802 & 21.6906  & 0.03328  &  0.08478 & 0.71114 \\ \hline
+\end{tabular}
+\caption{Tiempo de Ejecución}
+\label{tab:coches}
+\end{center}
+\end{table}
+
+\subsection{Tree Sort}
+Se utilizó el comando time para generar el tiempo de compilacion para cada lenguaje. Todo estos datos fueron almacenados en una libreta Jupyter para posteriormente utilizar la libreria Matplotlib de Python para generar las graficas.
+ Tambien se realizó calculos estadisticos utilizando la liberia Numpy. Los datos fueron almacenados y procesados para su respectiva tabla.
+
+ 
+    \begin{figure}[H] % si la tabla  se va al final cambiar a mayuscula
+        \centering
+        \includegraphics[scale=0.6]{img/treesortcpp.png}
+        \includegraphics[scale=0.6]{img/treesortgo.png}
+        \includegraphics[scale=0.6]{img/treesortpy.png}
+        \caption{Algoritmo Treesort}
+        \label{fig:my_label}
+    \end{figure}
+
+\begin{table}[t]
+\begin{center}
+\begin{tabular}{| c | c | c | c | c | c | c |}
+\hline
+\multicolumn{7}{ |c| }{Algoritmo TreeSort - Promedios y Desviacion Estandar} \\ \hline
+Datos & C++ (s) & Go (s) & Py (s) &  DE C++ & DE Go & DE Py\\ \hline
+100 & 1.203 &0.867 & 0.0348 & 0.03118 & 0.10078 & 0.00295 \\
+1000 & 1.2262 & 0.8704 & 0.0504 & 0.11282 & 0.06405 & 0.01013 \\
+2000 & 1.227 & 0.8776 & 0.095 & 0.11981 & 0.08759 & 0.02387 \\
+3000 & 1.3686 & 0.888 & 0.148 & 0.16048 & 0.13903 &  0.02758 \\
+4000 & 1.0944 & 0.8960 & 0.1756 & 0.315517 & 0.078064 & 0.02364 \\
+5000 & 1.1968 & 0.9738 & 0.1892 &  0.12132 & 0.13485 & 0.02205 \\
+6000 & 1.34 & 1.01 & 0.2488 & 0.157074 & 0.08069 &  0.04511 \\
+7000 & 1.2334 & 1.0976 & 0.2708 & 0.10924 & 0.10596 & 0.06994 \\
+8000 & 1.1072 & 1.114 & 0.3836 & 0.06894 & 0.12673 & 0.03658 \\
+9000 & 1.2449 & 1.125 & 0.4004 & 0.08576 & 0.07631 & 0.02275 \\
+10000 & 1.243 & 1.2344 & 0.47 &  0.11511 & 0.12151 & 0.056922 \\
+20000 & 1.2551 & 1.923 & 0.8286 & 0.06640 & 0.14278 &  0.1019 \\
+30000 & 1.3648 & 2.6802 & 1.4236 &  0.12060 & 0.18089 & 0.117000 \\
+40000 & 1.4124 & 3.5530 & 1.9113 & 0.08527 &  0.27471 & 0.14817 \\
+50000 & 1.629 & 4.3946 & 3.2928  & 0.10534  &  0.31841 & 0.20671 \\ \hline
+\end{tabular}
+\caption{Tiempo de Ejecución TreeSort}
+\label{tab:coches}
+\end{center}
+\end{table}
+
+\subsection{Quick Sort}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.6]{img/quicksort_1.png}
+	\caption{Algoritmo Quicksort}
+	\label{fig:my_label}
+\end{figure}
+\newpage
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{| c | c | c | c | c | c | c |}
+			\hline
+			\multicolumn{7}{ |c| }{Algoritmo Quicksort - Promedios y Desviacion Estandar} \\ \hline
+			Datos & C++ (ns) & Go (ns) & Py (ns) &  DE C++ & DE Go & DE Py\\ \hline
+			100 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 \\
+			1000 & 0.0 & 0.0 & 5208600.0 & 0.0 & 0.0 & 7366072.7 \\
+			2000 & 0.0 & 203460.0 & 5207900.0 & 0.0 & 249215.9 & 7365082.8 \\
+			3000 & 0.0 & 413200.0 & 11032883.3 & 0.0 & 206604.8 &  7910433.4 \\
+			4000 & 3124600.0 & 411640.0 & 13432433.3 & 6249200.0 & 205822.7 & 6074291.9 \\
+			5000 & 3124800.0 & 708880.0 & 7811283.3 &  6249600.0 & 1175956.2 & 7811283.4 \\
+			6000 & 0.0 & 1105380.0 & 15808183.3 & 0.0 & 2210760.0 &  411578.6 \\
+			7000 & 0.0 & 0.0 & 24004683.3 & 0.0 & 0.0 & 8455592.7 \\
+			8000 & 3125200.0 & 0.0 & 29220716.6 & 6250400.0 & 0.0 & 10096888.9 \\
+			9000 & 0.0 & 0.0 & 36872233.3 & 0.0 & 0.0 & 7126993.4 \\
+			10000 & 0.0 & 2006200.0 & 36869583.3 &  0.0 & 4012400.0 & 7981065.8 \\
+			20000 & 0.0 & 1453500.0 & 73487433.3 & 0.0 & 763500.2 &  11194532.3 \\
+			30000 & 10390400.0 & 3901340.0 & 117625616.6 &  8684150.0 & 3338338.6 & 8302441.4 \\
+			40000 & 8522000.0 & 5109060.0 & 180275883.3 & 5014864.0 &  2553783.2 & 14059537.9 \\
+			50000 & 9594600.0 & 5011120.0 & 208779083.3  & 489573.5  &  467291.0 & 12087924.9 \\ \hline
+		\end{tabular}
+		\caption{Tiempo de Ejecución}
+		\label{tab:coches}
+	\end{center}
+\end{table}
+
+\subsection{Heap Sort}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.6]{img/heapsort_1.png}
+	\caption{Algoritmo Heapsort}
+	\label{fig:my_label}
+\end{figure}
+\newpage
+\begin{table}[t]
+	\begin{center}
+		\begin{tabular}{| c | c | c | c | c | c | c |}
+			\hline
+			\multicolumn{7}{ |c| }{Algoritmo Heapsort - Promedios y Desviacion Estandar} \\ \hline
+			Datos & C++ (s) & Go (s) & Py (s) &  DE C++ & DE Go & DE Py\\ \hline
+			100 & 0.0 & 0.0 & 2603950.0 & 0.0 & 0.0 & 5822609.2 \\
+			1000 & 0.0 & 206800.0 & 7812200.0 & 0.0 & 253291.1 & 7812200.0 \\
+			2000 & 0.0 & 516220.0 & 10905833.3 & 0.0 & 1710.4 & 7781122.6 \\
+			3000 & 0.0 & 836680.0 & 26458883.34 & 0.0 & 261797.7 &  7712177.3 \\
+			4000 & 0.0 & 813980.0 & 31865516.6 & 0.0 & 516241.5 & 9125481.2 \\
+			5000 & 0.0 & 0.0 & 39703883.3 &  0.0 & 0.0 & 8553207.1 \\
+			6000 & 3124800.0 & 2006100.0 & 50064733.3 & 6249600.0 & 4012200.0 & 7135993.5 \\
+			7000 & 3125000.0 & 0.0 & 55257450.0 & 6250000.0 & 0.0 & 7330155.2 \\
+			8000 & 3124800.0 & 2017780.0 & 76115666.6 & 6249600.0 & 4035560.0 & 6229336.5 \\
+			9000 & 3125000.0 & 2005460.0 & 76083966.6 & 6250000.0 & 4010920.0 & 6200907.8 \\
+			10000 & 6249600.0 & 4026100.0 & 89165300.0 &  7654165.5 & 4931008.7 & 6568716.0 \\
+			20000 & 10253200.0 & 6215360.0 & 201116500.0 & 8523860.1 & 1947155.2 &  10964874.8 \\
+			30000 & 6250000.0 & 7418220.0 & 305298400.0 & 7654655.4 & 2350517.3 & 14019960.2 \\
+			40000 & 16332800.0 & 9045760.0 & 425932733.3333333 & 1416100.4 &  1953907.0 & 12883969.9 \\
+			50000 & 16348400.0 & 13987940.0 & 580658700.0  & 1446800.2 & 478307.0 & 35709778.9 \\ \hline
+		\end{tabular}
+		\caption{Tiempo de Ejecución}
+		\label{tab:coches}
+	\end{center}
+\end{table}
+
+\section{Conclusiones}
+    \subsection{Merge Sort} 
+    \begin{itemize}
+        \item El enguaje C++ utiliza menos tiempo en ejecutar este algoritmo (entre 1 a 2 segundos). Y que, puede ejecutar cargas de millones de datos en tiempos menores. 
+        \item El lenguaje Go utiliza similar tiempo con el C++, pero a su vez tiende a aumentar linealmente su tiempo de ejecución. Ambos lenguajes anteriormente mencionados son derivados del C.
+        \item Para el lenguaje Python, este muestra un aumento del tiempo exponencial. La razon es sencilla: y es que este lenguaje es interpretado, o sea, mientras compila el programa, ejecuta las funciones. Y por tal para algunos procesamientos de millones de datos puede que no sea tan efectivo.
+        \item Interpretando las desviaciones estandar, se tiene que para los lenguajes C++ y Go se tienen variaciones notorias para los analisis de 100 a 10000 datos. En cambio, para Python si se tiene una desviacion estandar bajas debido a que los tiempos de compilacion son altos.
+        
+    \end{itemize}
+
+    \subsection{Tree Sort}
+	\begin{itemize}
+        \item El enguaje C++ cuenta con una ejecución mas rápida (entre 1 a 2 segundos, en comparación a los otros lenguajes) razón por la cual se podria observar variaciones en los tiempos de los datos menores.
+        \item El lenguaje Go cuenta con una elevacion progresiva relacionada que tiene relacion con la complejidad del algoritmo.
+        \item Para el lenguaje Python, este muestra un ligero aumento del tiempo exponencial que en la parte final se podría observar mejor con una mayor cantidad de datos.        
+    \end{itemize}
+
+	
+	\subsection{Quick Sort}
+		\begin{itemize}
+			\item El enguaje Go y C++ cuentas con las ejecuciones más rápidas de 0 a 0.1 segundos, se puede observar que apartir de los 20 mil datos el lenguaje Go es más rápido por pequeñas diferencias.
+			\item Para el lenguaje Python, este muestra un gran incremento de timepo de ejecución con respecto a los otros dos lenguajes.        
+		\end{itemize}
+	
+	\subsection{Heap Sort}
+		\begin{itemize}
+			\item El enguaje Go y C++ cuentas con las ejecuciones más rápidas de 0 a 0.1 segundos, se puede observar que apartir de los 30 mil datos el lenguaje Go es más rápido por pequeñas diferencias.
+			\item Para el lenguaje Python, este muestra un gran incremento de timepo de ejecución con respecto a los otros dos lenguajes.        
+		\end{itemize}
+		
+	\end{document}
