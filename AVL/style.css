@@ -41,7 +41,7 @@ button:hover{
     font-weight: 600;
     font-size: 1.5rem;
     border: #0b515c 3px solid;
-    background-color: #117a8b;
+    background-color: #000000;
     color: white;
     border-radius: 5px;
     height: 10%;
@@ -120,7 +120,7 @@ button:hover{
     border-bottom: #000 4px solid;
     border-radius: 3px;
     font-size: 2.8em;
-    color: #fff942;
+    color: white;
     letter-spacing: 0.6px;
     margin: 0.3rem 0;
 }
@@ -141,36 +141,51 @@ button:hover{
 }
 
 #insertNode{
-    border:2px solid #398a39;
-    background-color: #5cb85c;
+    /* border:2px solid #398a39;
+    background-color: #5cb85c; */
+    color: #fff;
+    background-color: #0069d9;
+    border: #004a99 2px solid;
 }
 
 #insertNode:hover{
-    background-color: rgb(25, 26, 25);
+    /* background-color: rgb(25, 26, 25);
     color: #45cc45;
-    box-shadow: 1px 1px 8px #6cd46c;
+    box-shadow: 1px 1px 8px #6cd46c; */
+    background-color: #fff;
+    color: #004a99;
 }
 
 #findNode{
-    border:2px solid #c5862f;
-    background-color: #f0ad4e;
+    /* border:2px solid #c5862f;
+    background-color: #f0ad4e; */
+    color: #fff;
+    background-color: #0069d9;
+    border: #004a99 2px solid;
 }
 
 #findNode:hover{
-    background-color: rgb(25, 26, 25);
+    /* background-color: rgb(25, 26, 25);
     color: #e99d34;
-    box-shadow: 1px 1px 8px #ebb76f;
+    box-shadow: 1px 1px 8px #ebb76f; */
+    background-color: #fff;
+    color: #004a99;
 }
 
 #deleteNode{
-    border:2px solid #b63732;
-    background-color: #d9534f;
+    /* border:2px solid #b63732;
+    background-color: #d9534f; */
+    color: #fff;
+    background-color: #0069d9;
+    border: #004a99 2px solid;
 }
 
 #deleteNode:hover{
-    background-color: rgb(25, 26, 25);
+    /* background-color: rgb(25, 26, 25);
     color: #e64c47;
-    box-shadow: 1px 1px 8px #ff5650;
+    box-shadow: 1px 1px 8px #ff5650; */
+    background-color: #fff;
+    color: #004a99;
 } 
 
 #travsHeading{
@@ -188,13 +203,17 @@ button:hover{
     display: flex;
     justify-content: space-between;
     border-radius: 4px;
-    background-image: linear-gradient(to right bottom ,#f953cc,#d12b87);
-    border: 2px solid #921259;
+    /* background-image: linear-gradient(to right bottom ,#f953cc,#d12b87);
+    border: 2px solid #921259; */
+    background-image: linear-gradient(to right bottom ,#4a4a4b,#515253);
+    border: #004a99 2px solid;
     margin: 1em 0.1em;
     cursor: pointer;
 }
 
 .travs > button{
+    color: #fff;
+    background-color: #0069d9;
     padding: 0.5em 0.3em;
     margin: 0;
     border-radius: 3px;
@@ -203,8 +222,10 @@ button:hover{
 
 .travs > button:hover{
     padding: 0.2em;
-    background-color: #000;
-    color: #d12b87;
+    /* background-color: #000;
+    color: #d12b87; */
+    background-color: #fff;
+    color: #004a99;
     font-size: 1.1em;
 }
 
@@ -221,7 +242,8 @@ button:hover{
     font-size: 50px;
     margin: 150px 0 0 220px;
     letter-spacing: 4px;
-    background: linear-gradient(90deg, #8A2387,#E94057,#F27121);
+    background: white;
+    /* background: linear-gradient(90deg, #8A2387,#E94057,#F27121); */
     background-size: 80%;
     animation: animate 12s linear infinite;
     -webkit-background-clip: text;

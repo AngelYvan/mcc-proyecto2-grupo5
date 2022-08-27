@@ -34,6 +34,26 @@ Tree.prototype.postTraverse = function () {
     }
 }
 
+Tree.prototype.minimun = function () { 
+    if (tree.root) {
+        travs = "Minimun : ";
+        this.root.minimunNode();
+        message.innerText = travs;
+    } else { 
+        message.innerText = "Tree is Empty.";
+    }
+}
+
+Tree.prototype.maximun = function () { 
+    if (tree.root) {
+        travs = "Maximun : ";
+        this.root.maximunNode();
+        message.innerText = travs;
+    } else { 
+        message.innerText = "Tree is Empty.";
+    }
+}
+
 function assignRoot(cur) { 
     cur.x = (w - toolsWidth) / 2;
     cur.y = (2.1 * calculateSize(w, h)) / 2;

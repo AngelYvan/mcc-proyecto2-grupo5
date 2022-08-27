@@ -101,7 +101,7 @@ function assign(cur, parent, flag, visit) {
     background(0);
     assignRoot(tree.root);
     tree.root.reAssign(tree.root);
-    balanceTree();
+    // balanceTree();
 }
 
 function balanceTree() { 
@@ -233,6 +233,24 @@ Node.prototype.getHeight = function (cur) {
         height = Math.max(this.getHeight(cur.left), this.getHeight(cur.right)) + 1;
     
     return height;
+}
+
+Node.prototype.minimunNode = function () {
+    // travs += this.value.toString() + " , ";
+
+    if (this.left == null) 
+        travs += this.value.toString();
+    else
+        return this.left.minimunNode();
+}
+
+Node.prototype.maximunNode = function () {
+    // travs += this.value.toString() + " , ";
+
+    if (this.right == null) 
+        travs += this.value.toString();
+    else
+        return this.right.maximunNode();
 }
 
 Node.prototype.preVisit = function () {
