@@ -1,4 +1,5 @@
-# mcc-proyecto2-grupo5
+# Maestria en Ciencias de la Computación - UNSA
+# Grupo V - Practica 2
 
 ## 1. Integrantes
 - Angel Yvan Choquehuanca Peraltilla
